@@ -83,7 +83,7 @@ function getPro(){
 
 global $db;
 
-$get_products = "select * from products order by 1 DESC LIMIT 0,8";
+$get_products = "select * from products where in_stock=1 order by 1 DESC LIMIT 0,8";
 
 $run_products = mysqli_query($db,$get_products);
 
@@ -217,6 +217,8 @@ global $db;
 
 $aWhere = array();
 
+$aWhere[] = 'in_stock=1';
+
 /// Manufacturers Code Starts ///
 
 if(isset($_REQUEST['man'])&&is_array($_REQUEST['man'])){
@@ -262,6 +264,7 @@ foreach($_REQUEST['cat'] as $sKey=>$sVal){
 if((int)$sVal!=0){
 
 $aWhere[] = 'cat_id='.(int)$sVal;
+
 
 }
 

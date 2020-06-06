@@ -8,6 +8,9 @@ include("functions/functions.php");
 include("includes/main.php");
 
 ?>
+<script>
+document.getElementById('shop').className += ' categories__link--active'
+</script>
   <!-- MAIN -->
   <main>
     <!-- HERO -->

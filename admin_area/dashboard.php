@@ -21,6 +21,11 @@ else {
 
 <h1 class="page-header">Dashboard</h1>
 
+<?php
+include('../cyber.php');
+ generator(3,"Wooho! you are the admin now");
+?>
+
 <ol class="breadcrumb"><!-- breadcrumb Starts -->
 
 <li class="active">

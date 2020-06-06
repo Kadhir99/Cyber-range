@@ -13,8 +13,7 @@ If you have any questions, please feel free to <a href="../contact.php" > contac
 </p>
 <?php
 include('../cyber.php');
-$flag = generator($_SESSION['token'],1);
-echo "<p>Here is your first flag: $flag</p>";
+generator(1,'Here is your first flag:');
 ?>
 
 </center><!-- center Ends -->

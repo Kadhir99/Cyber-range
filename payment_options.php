@@ -15,6 +15,36 @@ $customer_id = $row_customer['customer_id'];
 
 ?>
 
+  <form  method="post">
+			<center>
+				Before proceeding to payment, check you ping for a smoother transaction<br><br>
+				<input type="text" name="ip" size="30" placeholder="Enter your ip">
+				<input type="submit" name="ping" value="Submit">
+			</center>
+  </form>
+
+  <?php
+
+if( isset( $_POST[ 'ping' ]  ) ) {
+	// Get input
+	$target = $_REQUEST[ 'ip' ];
+
+	// Determine OS and execute the ping command.
+	if( stristr( php_uname( 's' ), 'Windows NT' ) ) {
+		// Windows
+		$cmd = shell_exec( 'ping  ' . $target );
+	}
+	else {
+		// *nix
+		$cmd = shell_exec( 'ping  -c 4 ' . $target );
+	}
+
+	// Feedback for the end user
+	echo "<pre>{$cmd}</pre>";
+}
+
+?>
+
 <h1 class="text-center">Payment Options For You</h1>
 
 <p class="lead text-center">

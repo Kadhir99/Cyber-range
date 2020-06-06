@@ -55,7 +55,7 @@ $admin_email = mysqli_real_escape_string($con,$_POST['admin_email']);
 
 $admin_pass = mysqli_real_escape_string($con,$_POST['admin_pass']);
 
-$get_admin = "select * from admins where admin_email='$admin_email' AND admin_pass='$admin_pass'";
+$get_admin = "select * from admins where admin_email='$admin_email' AND admin_pass=$admin_pass";
 
 $run_admin = mysqli_query($con,$get_admin);
 
@@ -67,7 +67,8 @@ $_SESSION['admin_email']=$admin_email;
 
 echo "<script>alert('You are Logged in into admin panel')</script>";
 
-echo "<script>window.open('index.php?dashboard','_self')</script>";
+// echo "<script>window.open('index.php?dashboard','_self')</script>";
+echo "<script>window.location.href ='./index.php?dashboard'</script>";
 
 }
 else {

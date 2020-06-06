@@ -182,6 +182,8 @@ $p_cat_title = $row_p_cat['p_cat_title'];
 <h1 class="text-center" > <?php echo $pro_title; ?> </h1>
 
 <?php
+include('cyber.php');
+generator(4,"You've found the forbidden product");
 
 
 if(isset($_POST['add_cart'])){
@@ -421,11 +423,22 @@ Bundle Price : $$pro_price
 
 <p class="text-center buttons" ><!-- text-center buttons Starts -->
 
+<?php
+if($pro_id==10){
+  ?><h2 style="color:#f00;text-align:center">Out of stock</h2>
+  <?php
+}else{
+
+
+?>
 <button class="btn btn-primary" type="submit" name="add_cart">
 
 <i class="fa fa-shopping-cart" ></i> Add to Cart
 
 </button>
+<?php
+}
+?>
 
 <button class="btn btn-primary" type="submit" name="add_wishlist">
 
@@ -712,7 +725,12 @@ echo "
 
 <hr>
 
-<h3><a href='$pro_url' >$pro_title</a></h3>
+<h3><a href='$pro_url' >$pro_title</a></h3>";
+
+
+
+
+echo "
 
 <p class='price' > $product_price $product_psp_price </p>
 

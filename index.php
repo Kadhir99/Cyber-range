@@ -11,8 +11,7 @@ if(isset($_POST['login'])){
         header("Location:nextindex.php");
     }
 }
-include('cyber.php');
-generator('001',1);
+
 ?>
 
 <!DOCTYPE html>

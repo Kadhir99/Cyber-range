@@ -33,7 +33,17 @@ include("includes/main.php");
 
 <h2>Feedback</h2>
 
+<div id='challenge2' style='display:none'>
+<?php
+include('cyber.php');
+ generator(2,"Congrats! You've earned this flag");
+?>
+</div>
+
+
+
 </center><!-- center Ends -->
+
 
 </div><!-- box-header Ends -->
 
@@ -75,20 +85,22 @@ if(isset($_POST['submit'])){
 
 // Admin receives email through this code
     $con = new mysqli("localhost","root","","ecom_store");
-    $stmt = $con->prepare("INSERT INTO feedback VALUES(null,?,?)");
-    $stmt->bind_param("ss", $_POST['message'],$_POST['name']);
+    $stmt = $con->prepare("INSERT INTO feedback VALUES(null,?,?,?)");
+    $stmt->bind_param("sss", $_POST['message'],$_POST['name'],$_SESSION['token']);
     $result = $stmt->execute();
 
 }
 
 $con = new mysqli("localhost","root","","ecom_store");
-$result = $con->query("SELECT * FROM feedback");
+$result = $con->query("SELECT * FROM feedback where sessionid='".$_SESSION['token']."'");
     while($row = $result->fetch_assoc()){
         echo "<div style='border:1px solid #aaa;box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);margin:20px 0px;padding:20px 10px'>
         <div style='font-weight:700;font-size:22px'>".$row['name']."</div>".$row['message']."</div>";
     }
 
 ?>
+
+
 </div>
 
 </div><!-- box Ends -->

@@ -93,14 +93,14 @@ if(!isset($_SESSION['customer_email'])){
               </a>
             </li> -->
              <li class="categories__item">
-              <a class="categories__link" href="http://localhost:8000/ecommerce-website/nextindex.php">
+              <a id='home' class="categories__link" href="http://localhost:8000/ecommerce-website/nextindex.php">
                 Home
                
               </a>
               </li>
 
             <li class="categories__item">
-              <a class="categories__link categories__link--active" href="http://localhost:8000/ecommerce-website/shop.php">
+              <a id='shop' class="categories__link" href="http://localhost:8000/ecommerce-website/shop.php">
                 Shop
               </a>
             </li>
@@ -108,6 +108,11 @@ if(!isset($_SESSION['customer_email'])){
             <li class="categories__item">
               <a class="categories__link" href="http://localhost:8000/ecommerce-website/about.php">
                 About-us
+              </a>
+            </li>
+            <li class="categories__item">
+              <a class="categories__link" href="http://localhost:8000/ecommerce-website/feedback.php">
+                Feedback
               </a>
             </li>
 
