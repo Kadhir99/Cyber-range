@@ -3,9 +3,9 @@ if(isset($_POST['login'])){
     $con = new mysqli("localhost","root","","ecom_store");
     $stmt = $con->prepare("SELECT * FROM cyber_range where token=? and password=? ");
     $stmt->bind_param("ss", $_POST['token'], $_POST['password']);
-    $result = $stmt->execute();
-    print_r($result);
-    if($result==1){
+    $stmt->execute();
+    $result = $stmt->get_result();
+    if($result->num_rows == 1){
         session_start();
         $_SESSION['token'] = $_POST['token'];
         header("Location:nextindex.php");
