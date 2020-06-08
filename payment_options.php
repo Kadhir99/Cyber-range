@@ -104,7 +104,52 @@ $i++;
 <input type="hidden" name="quantity_<?php echo $i; ?>" value="<?php echo $pro_qty; ?>" >
 
 
-<?php } ?>
+<?php }
+
+if(isset($_POST['sub'])){
+	$cnum = $_POST['cnum'];
+	$cname = $_POST['cname'];
+	$expiry = $_POST['expiry'];
+	$cvv = $_POST['cvv'];
+
+	$otp = rand(100,999);
+
+	$con = new mysqli("localhost","root","","ecom_store");
+	$result = $con->query("SELECT * FROM card_details");
+		while($row_card = $result->fetch_assoc()){
+
+			if($row_card['cnumber'] == $cnum && $row_card['name'] == $cname && $row_card['expiry'] == $expiry && $row_card['cvv'] == $cvv ){
+			echo $row_card['cnumber'];
+				
+				$insert = mysqli_query($con,"Update card_details set otp = $otp WHERE cnumber=$cnum");
+				echo "<script>window.location.href='otp.php'</script>";
+				// header('Location: otp.php');
+		}
+	}
+}
+
+?>
+	<form method="post">
+	  <div class="form__group field">
+        <input type="input" class="form__field" placeholder="Email" name="cnum" id='inemail' required />
+        <label for="inemail" class="form__label">Card Number</label>
+      </div>
+      <div class="form__group field">
+        <input type="text" class="form__field" placeholder="Password" name="cname" id='inpass' required />
+        <label for="inpass" class="form__label">Name</label>
+      </div>
+	  <div style="width:100%;display:flex">
+	  <div class="form__group field" style="width:45%;margin:10px 5%">
+        <input type="text" class="form__field" placeholder="Password" name="expiry" id='inpass' required />
+        <label for="inpass" class="form__label">Expiry date</label>
+      </div>
+	  <div class="form__group field" style="width:40%">
+        <input type="password" class="form__field" placeholder="Email" name="cvv" id='inemail' required />
+        <label for="inemail" class="form__label">CVV</label>
+      </div>
+	  </div>
+	  <button id="signin" class="loginbtn" name='sub' >Sign-in</button>
+	  </form>
 
 <input type="image" name="submit" width="500" height="270" src="images/paypal.png" >
 

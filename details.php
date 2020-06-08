@@ -182,8 +182,10 @@ $p_cat_title = $row_p_cat['p_cat_title'];
 <h1 class="text-center" > <?php echo $pro_title; ?> </h1>
 
 <?php
+if($pro_id==10){
 include('cyber.php');
 generator(4,"You've found the forbidden product");
+}
 
 
 if(isset($_POST['add_cart'])){

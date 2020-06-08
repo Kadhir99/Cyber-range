@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 08, 2020 at 11:59 AM
+-- Generation Time: Jun 08, 2020 at 04:03 PM
 -- Server version: 10.4.11-MariaDB
 -- PHP Version: 7.4.1
 
@@ -92,6 +92,27 @@ INSERT INTO `bundle_product_relation` (`rel_id`, `rel_title`, `product_id`, `bun
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `card_details`
+--
+
+CREATE TABLE `card_details` (
+  `cnumber` varchar(20) NOT NULL,
+  `name` varchar(30) NOT NULL,
+  `expiry` varchar(10) NOT NULL,
+  `cvv` varchar(5) NOT NULL,
+  `otp` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `card_details`
+--
+
+INSERT INTO `card_details` (`cnumber`, `name`, `expiry`, `cvv`, `otp`) VALUES
+('1234', 'roger', '07/24', '456', 291);
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `cart`
 --
 
@@ -102,6 +123,13 @@ CREATE TABLE `cart` (
   `p_price` varchar(255) NOT NULL,
   `size` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `cart`
+--
+
+INSERT INTO `cart` (`p_id`, `ip_add`, `qty`, `p_price`, `size`) VALUES
+(11, '::1', 0, '200', 'Select a Size');
 
 -- --------------------------------------------------------
 
@@ -194,7 +222,7 @@ CREATE TABLE `customers` (
 --
 
 INSERT INTO `customers` (`customer_id`, `customer_name`, `customer_email`, `customer_pass`, `customer_country`, `customer_city`, `customer_contact`, `customer_address`, `customer_image`, `customer_ip`, `customer_confirm_code`) VALUES
-(2, 'user', 'user@ave.com', '123', 'United State', 'New York', '0092334566931', 'new york', 'user.jpg', '::1', '');
+(2, 'user', 'user@ave.com', '123', 'United State', 'New York', '0092334566931', 'new york', 'terms.php', '::1', '');
 
 -- --------------------------------------------------------
 
@@ -224,7 +252,8 @@ INSERT INTO `customer_orders` (`order_id`, `customer_id`, `due_amount`, `invoice
 (19, 2, 150, 1068059025, 1, 'Medium', '2017-02-20 08:26:47', 'pending'),
 (20, 2, 288, 909940689, 3, 'Large', '2017-02-27 11:06:32', 'complete'),
 (21, 2, 400, 909940689, 2, 'Meduim', '2017-02-27 11:06:37', 'complete'),
-(22, 2, 0, 1309486381, 0, 'Select a Size', '2020-06-05 13:32:02', 'pending');
+(22, 2, 0, 1309486381, 0, 'Select a Size', '2020-06-05 13:32:02', 'pending'),
+(23, 2, 0, 207858811, 0, 'Select a Size', '2020-06-08 10:06:08', 'pending');
 
 -- --------------------------------------------------------
 
@@ -365,7 +394,8 @@ INSERT INTO `pending_orders` (`order_id`, `customer_id`, `invoice_no`, `product_
 (19, 2, 1068059025, '7', 1, 'Medium', 'pending'),
 (20, 2, 909940689, '6', 3, 'Large', 'complete'),
 (21, 2, 909940689, '11', 2, 'Meduim', 'complete'),
-(22, 2, 1309486381, '9', 0, 'Select a Size', 'pending');
+(22, 2, 1309486381, '9', 0, 'Select a Size', 'pending'),
+(23, 2, 207858811, '5', 0, 'Select a Size', 'pending');
 
 -- --------------------------------------------------------
 
@@ -668,7 +698,7 @@ ALTER TABLE `customers`
 -- AUTO_INCREMENT for table `customer_orders`
 --
 ALTER TABLE `customer_orders`
-  MODIFY `order_id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
+  MODIFY `order_id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
 
 --
 -- AUTO_INCREMENT for table `enquiry_types`
@@ -698,7 +728,7 @@ ALTER TABLE `payments`
 -- AUTO_INCREMENT for table `pending_orders`
 --
 ALTER TABLE `pending_orders`
-  MODIFY `order_id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
+  MODIFY `order_id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
 
 --
 -- AUTO_INCREMENT for table `products`

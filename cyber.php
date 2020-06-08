@@ -8,3 +8,7 @@ echo "
 <center style=\"color:#282;font-weight:700;font-family:'Poppins'\">"
 .$message."<br>flag$index{".md5("challenge".$index.$token).'}</center>';
 }
+
+function get_flag_7(){
+generator(7,'You uploaded THE file');
+}
