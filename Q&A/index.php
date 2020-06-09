@@ -1,3 +1,18 @@
+<?php
+session_start();
+ $con = new mysqli("localhost","root","","ecom_store");
+    $stmt = $con->prepare("SELECT * FROM cyber_result WHERE token='".$_SESSION['token']."'");
+    $stmt->execute();
+    $result = $stmt->get_result();
+    if($result->num_rows == 1){
+        $js = json_encode($result->fetch_assoc());
+    }else{
+        header('Location: http://localhost:8000/ecommerce-website/index.php');
+    }
+    
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -6,6 +21,11 @@
     <script src="https://code.jquery.com/jquery-3.5.1.min.js"
         integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js"></script>
+          <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.0.0/animate.min.css"
+  />
+  <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="index.css"/>
     <title>Q&A</title>
     <style>
@@ -13,19 +33,8 @@
     </style>
 </head>
 <body>
-    <script>
-        
-                document.cookie.split(";").forEach((i) => {
-                    if (i.match('token')) {
-                        window.token = i.split('=')[1]
-                    }
-                })
-                // if(!window.token){
-                //     window.location.href = "test.php";
-                // }
-    </script>
     <!-- multistep form -->
-    <form id="msform" style="width: 900px">
+    <form action="thankyou.php" method="POST" id="msform" style="width: 900px">
         <!-- progressbar -->
         <ul id="progressbar">
             <li class="active">SQL injection level 1</li>
@@ -44,9 +53,10 @@
             Resources:
             <a href="https://www.owasp.org/index.php/SQL_Injection">https://www.owasp.org/index.php/SQL_Injection</a>
             </div>
-            <div style="display:flex">
-            <input type="text" name="flag1" placeholder="Paste flag 1 here" />
+            <div class='flagbox' style="display:flex">
+            <input type="text" name="flag1" placeholder="flag1{xxxxxxxxxxxxxxxxxxxxxx}" />
             <input type="button"  class="submit-button" value="flag" onclick="sub(this,1)" />
+            <span class="flexboxtext">Copy paste the right flag</span>
             </div>
             <input type="button" name="next" class="next action-button" value="Next" />
         </fieldset>
@@ -57,9 +67,9 @@
             Resources:
             <a href="https://www.owasp.org/index.php/Cross-site_Scripting_(XSS)">https://www.owasp.org/index.php/Cross-site_Scripting_(XSS)</a>
             </div>
-            <div style="display:flex">
-                <input type="text" name="flag1" placeholder="Paste flag 1 here" />
-                <input type="button" class="submit-button" value="flag" onclick="sub(this,1)" />
+            <div class='flagbox' style="display:flex">
+                <input type="text" name="flag1" placeholder="flag2{xxxxxxxxxxxxxxxxxxxxxx}" />
+                <input type="button" class="submit-button" value="flag" onclick="sub(this,2)" />
             </div>
             <input type="button" name="previous" class="previous action-button" value="Previous" />
             <input type="button" name="next" class="next action-button" value="Next" />
@@ -73,9 +83,9 @@
             <a href="https://www.owasp.org/index.php/SQL_Injection">https://www.owasp.org/index.php/SQL_Injection</a>
             </div>
             
-            <div style="display:flex">
-                <input type="text" name="flag1" placeholder="Paste flag 1 here" />
-                <input type="button" class="submit-button" value="flag" onclick="sub(this,1)" />
+            <div class='flagbox' style="display:flex">
+                <input type="text" name="flag1" placeholder="flag3{xxxxxxxxxxxxxxxxxxxxxx}" />
+                <input type="button" class="submit-button" value="flag" onclick="sub(this,3)" />
             </div>
             <input type="button" name="previous" class="previous action-button" value="Previous" />
             <input type="button" name="next" class="next action-button" value="Next" />
@@ -88,9 +98,9 @@
             Resources:
             <a href="https://owasp.org/www-community/Broken_Access_Control">https://owasp.org/www-community/Broken_Access_Control</a>
             </div>
-            <div style="display:flex">
-                <input type="text" name="flag1" placeholder="Paste flag 1 here" />
-                <input type="button" class="submit-button" value="flag" onclick="sub(this,1)" />
+            <div class='flagbox' style="display:flex">
+                <input type="text" name="flag1" placeholder="flag4{xxxxxxxxxxxxxxxxxxxxxx}" />
+                <input type="button" class="submit-button" value="flag" onclick="sub(this,4)" />
             </div>
             <input type="button" name="previous" class="previous action-button" value="Previous" />
             <input type="button" name="next" class="next action-button" value="Next" />
@@ -106,9 +116,9 @@
             <div style="width:95%;background:#eee;text-align:left;font-size:13px;padding:5px;margin-bottom:20px">
             Command: getflag5 &lt;your_token&gt;
             </div>
-            <div style="display:flex">
-                <input type="text" name="flag1" placeholder="Paste flag 1 here" />
-                <input type="button" class="submit-button" value="flag" onclick="sub(this,1)" />
+            <div class='flagbox' style="display:flex">
+                <input type="text" name="flag1" placeholder="flag5{xxxxxxxxxxxxxxxxxxxxxx}" />
+                <input type="button" class="submit-button" value="flag" onclick="sub(this,5)" />
             </div>
             <input type="button" name="previous" class="previous action-button" value="Previous" />
             <input type="button" name="next" class="next action-button" value="Next" />
@@ -121,9 +131,9 @@
             Resources:
             <a href="https://www.owasp.org/index.php/Testing_for_Brute_Force_(OWASP-AT-004)">https://www.owasp.org/index.php/Testing_for_Brute_Force_(OWASP-AT-004)</a>
             </div>
-            <div style="display:flex">
-                <input type="text" name="flag1" placeholder="Paste flag 1 here" />
-                <input type="button" class="submit-button" value="flag" onclick="sub(this,1)" />
+            <div class='flagbox' style="display:flex">
+                <input type="text" name="flag1" placeholder="flag6{xxxxxxxxxxxxxxxxxxxxxx}" />
+                <input type="button" class="submit-button" value="flag" onclick="sub(this,6)" />
             </div>
             <input type="button" name="previous" class="previous action-button" value="Previous" />
             <input type="button" name="next" class="next action-button" value="Next" />
@@ -143,9 +153,9 @@
             include('../../cyber.php');
             get_flag_7();
             </div> 
-            <div style="display:flex">
-                <input type="text" name="flag1" placeholder="Paste flag 1 here" />
-                <input type="button" class="submit-button" value="flag" onclick="sub(this,1)" />
+            <div class='flagbox' style="display:flex">
+                <input type="text" name="flag1" placeholder="flag7{xxxxxxxxxxxxxxxxxxxxxx}" />
+                <input type="button" class="submit-button" value="flag" onclick="sub(this,7)" />
             </div>
             <input type="button" name="previous" class="previous action-button" value="Previous" />
             <input type="button" name="next" class="next action-button" value="Next" />
@@ -159,6 +169,18 @@
         </fieldset>
     </form>
     <script>
+
+        let db = <?php echo $js; ?>;
+        let flagbox = document.querySelectorAll('.flagbox')
+        function getcomplete(){
+        document.querySelectorAll('#progressbar li').forEach((i,index)=>{
+            if(db['q'+(index+1)]){
+            i.classList += ' complete';
+            flagbox[index].style.display= 'none';
+            }
+        });
+    }
+    getcomplete();
             //jQuery time
             var current_fs, next_fs, previous_fs; //fieldsets
             var left, opacity, scale; //fieldset properties which we will animate
@@ -173,6 +195,7 @@
 
                 //activate next step on progressbar using the index of next_fs
                 $("#progressbar li").eq($("fieldset").index(next_fs)).addClass("active");
+
 
                 //show the next fieldset
                 next_fs.show();
@@ -237,22 +260,35 @@
                 });
             });
 
-            $(".submit").click(function () {
-                return false;
-            })
+            // $(".submit").click(function () {
+            //     return false;
+            // })
             function sub(elt,index){
-                 
                 $.ajax({
                     type: "POST",
                     data:{
                         flag: elt.parentNode.querySelector('input').value,
                         index: index,
-                        token: window.token,
+                        token: '<?php echo $_SESSION['token']; ?>'
                     },
-                    url:"test.php",
+                    url:"thankyou.php",
                     cache: false,
                     success: function (html) {
-                        console.log(html);
+                        if(html == 'true'){
+                            db['q'+index] = 1;
+                            getcomplete();
+                            
+                        }else{
+                            flagbox[index-1].classList += ' animate__animated animate__shakeX';
+                            // console.log(flagbox[index-1]);
+                            flagbox[index-1].querySelector('span').style.visibility = 'visible';
+                            window.setTimeout(()=>{
+                            flagbox[index-1].querySelector('span').style.visibility = 'hidden';
+                            flagbox[index-1].classList ='flagbox';
+
+                            },2000);
+                        }
+
                     }
                 })
             }

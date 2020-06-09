@@ -8,6 +8,8 @@ if(isset($_POST['login'])){
     if($result->num_rows == 1){
         session_start();
         $_SESSION['token'] = $_POST['token'];
+        $stmt = $con -> prepare("INSERT INTO cyber_result(token) VALUES('".$_POST['token']."')");
+        $stmt->execute();
         header("Location:nextindex.php");
     }
 }

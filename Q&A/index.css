@@ -146,6 +146,32 @@ body {
 	background: #27AE60;
 	color: white;
 }
+#progressbar li.complete:before,  #progressbar li.complete:after{
+	background: #2740ae;
+	color: white;
+}
+.flagbox {
+  position: relative;
+  display: inline-block;
+}
+
+.flagbox .flexboxtext {
+  visibility: hidden;
+  width: 200px;
+  font-size: 15px;
+  background-color: #f00a;
+  color: #fff;
+  font-family: 'Oswald';
+  text-align: center;
+  border-radius: 6px;
+  padding: 5px 0;
+  bottom: 50px;
+  /* Position the flexbox */
+  position: absolute;
+  z-index: 1;
+}
+
+.animate__shakeX{-webkit-animation-name:shakeX;animation-name:shakeX}@-webkit-keyframes shakeY{0%,to{-webkit-transform:translateZ(0);transform:translateZ(0)}10%,30%,50%,70%,90%{-webkit-transform:translate3d(0,-10px,0);transform:translate3d(0,-10px,0)}20%,40%,60%,80%{-webkit-transform:translate3d(0,10px,0);transform:translate3d(0,10px,0)}}@keyframes shakeY{0%,to{-webkit-transform:translateZ(0);transform:translateZ(0)}10%,30%,50%,70%,90%{-webkit-transform:translate3d(0,-10px,0);transform:translate3d(0,-10px,0)}20%,40%,60%,80%{-webkit-transform:translate3d(0,10px,0);transform:translate3d(0,10px,0)}}
 
 
 
