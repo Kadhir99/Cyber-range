@@ -61,16 +61,16 @@
   padding-bottom: 2px;
   font-weight: 500;
   border-width: 3px;
-  border-color: #00c8;
+  border-color: #0cc;
   border-image-slice: 1;
 }
 .form__field:focus ~ .form__label {
   position: absolute;
-  top: 0;
+  top: 5px;
   display: block;
   transition: 0.2s;
   font-size: 1rem;
-  color: #00c8;
+  color: #0cc;
   font-weight: 700;
 }
 
@@ -89,9 +89,30 @@
     width: 100%;
 }
 .loginbtn{
-float: right;
-margin: 20px 0 10px 0px;
-width: 90px;
+width: 90%;
+background:#0cc;
+margin:2% 5%;
+padding:10px;
+border:2px solid #0cc;
+color:#fff;
+font-family:'Poppins';
+border-radius:5px;
+}
+.loginbtn:hover{
+  background:#fff;
+  color:#0cc;
+}
+#ipsub{
+background:#0cc;
+padding:5px;
+border:2px solid #0cc;
+color:#fff;
+font-family:'Poppins';
+border-radius:5px;
+}
+#ipsub:hover{
+  background:#fff;
+  color:#0cc;
 }
 .signtab{
     width: 500px;

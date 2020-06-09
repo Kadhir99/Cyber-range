@@ -1,13 +1,17 @@
 </head>
 
 <body>
+<div style="background:#808d;color:white;padding:10px;font-family:'Poppins'">
+<span>User: 
 <?php
 if(!isset($_SESSION['token'])){
  header("Location:index.php");
 }
 echo $_SESSION['token'];
 ?>
-<a href="http://localhost:8000/ecommerce-website/fulllogout.php">Logout</a>
+</span>
+<a href="http://localhost:8000/ecommerce-website/fulllogout.php" style="float:right;text-decoration:none;color:white">Logout</a>
+</div>
   <header class="page-header">
     <!-- topline -->
     <div class="page-header__topline">

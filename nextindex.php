@@ -161,15 +161,12 @@ document.getElementById('home').className += ' categories__link--active'
         <div class="container clearfix">
 
           <div class="copyright">
-            &copy; 2018 Avenue Fashion&trade;
+            Thanks to Yasser Dalouzi
           </div>
 
           <div class="developer">
-            Dev by Yasser Dalouzi
-          </div>
-
-          <div class="designby">
-            Design by Yasser Dalouzi
+            Template from: 
+            https://github.com/yvsser1/ecommerce-website
           </div>
 
         </div>

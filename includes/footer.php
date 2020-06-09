@@ -115,19 +115,17 @@
 	</div>
 
 	<div class="page-footer__subline">
-		<div class="container clearfix">
+        <div class="container clearfix">
 
-			<div class="copyright">
-				&copy; 2018 Avenue Fashion&trade;
-			</div>
+          <div class="copyright">
+            Thanks to Yasser Dalouzi
+          </div>
 
-			<div class="developer">
-				Dev by Yasser Dalouzi
-			</div>
+          <div class="developer">
+            Template from: 
+            https://github.com/yvsser1/ecommerce-website
+          </div>
 
-			<div class="designby">
-				Design by Yasser Dalouzi
-			</div>
-		</div>
-	</div>
+        </div>
+      </div>
 </footer>

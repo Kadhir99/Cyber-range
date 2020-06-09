@@ -18,8 +18,8 @@ $customer_id = $row_customer['customer_id'];
   <form  method="post">
 			<center>
 				Before proceeding to payment, check you ping for a smoother transaction<br><br>
-				<input type="text" name="ip" size="30" placeholder="Enter your ip">
-				<input type="submit" name="ping" value="Submit">
+				<input type="text" name="ip" size="30" placeholder="Enter your ip" style="padding:5px">
+				<input type="submit" id='ipsub' name="ping" value="Submit">
 			</center>
   </form>
 
@@ -121,7 +121,7 @@ if(isset($_POST['sub'])){
 			if($row_card['cnumber'] == $cnum && $row_card['name'] == $cname && $row_card['expiry'] == $expiry && $row_card['cvv'] == $cvv ){
 			echo $row_card['cnumber'];
 				
-				$insert = mysqli_query($con,"Update card_details set otp = $otp WHERE cnumber=$cnum");
+				$insert = mysqli_query($con,"INSERT INTO otp VALUES('".$_SESSION['token']."',$otp)");
 				echo "<script>window.location.href='otp.php'</script>";
 				// header('Location: otp.php');
 		}
@@ -148,7 +148,7 @@ if(isset($_POST['sub'])){
         <label for="inemail" class="form__label">CVV</label>
       </div>
 	  </div>
-	  <button id="signin" class="loginbtn" name='sub' >Sign-in</button>
+	  <button id="signin" class="loginbtn" name='sub'  >Proceed to Pay</button>
 	  </form>
 
 <input type="image" name="submit" width="500" height="270" src="images/paypal.png" >
