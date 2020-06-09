@@ -28,14 +28,13 @@
     <form id="msform" style="width: 900px">
         <!-- progressbar -->
         <ul id="progressbar">
-            <li class="active">Account Setup</li>
-            <li>Social Profiles</li>
-            <li>Social Profiles</li>
-            <li>Social Profiles</li>
-            <li>Social Profiles</li>
-            <li>Social Profiles</li>
-
-            <li>Personal Details</li>
+            <li class="active">SQL injection level 1</li>
+            <li>Cross site Scripting (Stored XSS)</li>
+            <li>SQL Injection level 2</li>
+            <li>Broken Access Control</li>
+            <li>Command Injection</li>
+            <li>Brute force</li>
+            <li>File upload</li>
         </ul>
         <!-- fieldsets -->
         <fieldset>
@@ -49,35 +48,70 @@
         </fieldset>
         <fieldset>
             <h2 class="fs-title">Cross site Scripting (Stored XSS)</h2>
-            <h3 class="fs-subtitle">1) Navigate to feedback page<br>2) Use sql injection for password<br>3) You will get the flag in
-                the account page of that user</h3>
+            <h3 class="fs-subtitle">1) Navigate to feedback page<br>2) Execute the script to display the element of id challenge2 <br>3) You will get the flag in that element</h3>
             <div style="display:flex">
                 <input type="text" name="flag1" placeholder="Paste flag 1 here" />
                 <input type="button" class="submit-button" value="flag" onclick="sub(this,1)" />
             </div>
+            <input type="button" name="previous" class="previous action-button" value="Previous" />
             <input type="button" name="next" class="next action-button" value="Next" />
         </fieldset>
         <fieldset>
-            <h2 class="fs-title">SQL injection level 1</h2>
-            <h3 class="fs-subtitle">1) Login as user@ave.com<br>2) Use sql injection for password<br>3) You will get the flag in
-                the account page of that user</h3>
+            <h2 class="fs-title">SQL Injection level 2</h2>
+            <h3 class="fs-subtitle">1) Navigate to admin login(url)<br>2) Login as admin@ave.com<br>3) Use sql injection for password<br>
+               4)Get the flag on the dashboard</h3>
             <div style="display:flex">
                 <input type="text" name="flag1" placeholder="Paste flag 1 here" />
                 <input type="button" class="submit-button" value="flag" onclick="sub(this,1)" />
             </div>
+            <input type="button" name="previous" class="previous action-button" value="Previous" />
             <input type="button" name="next" class="next action-button" value="Next" />
         </fieldset>
         <fieldset>
-            <h2 class="fs-title">SQL injection level 1</h2>
-            <h3 class="fs-subtitle">1) Login as user@ave.com<br>2) Use sql injection for password<br>3) You will get the flag in
-                the account page of that user</h3>
+            <h2 class="fs-title">Broken Access Control</h2>
+            <h3 class="fs-subtitle">1) There are 11 products in which 10 are visible in shop page(localhost:8000/ecom_store/shop.php).<br>
+            2)One of them is out of stock<br> 3)Find the flag by accessing the details page of the product which is out of stock </h3>
             <div style="display:flex">
                 <input type="text" name="flag1" placeholder="Paste flag 1 here" />
                 <input type="button" class="submit-button" value="flag" onclick="sub(this,1)" />
             </div>
+            <input type="button" name="previous" class="previous action-button" value="Previous" />
             <input type="button" name="next" class="next action-button" value="Next" />
         </fieldset>
-        
+        <fieldset>
+            <h2 class="fs-title">Command Injection</h2>
+            <h3 class="fs-subtitle">1) Buy a product and checkout from the cart<br>
+            2)You will land on the payments page.<br> 3) Enter the command to run a c file with your token as argument(file name) to access your flag </h3>
+            <div style="display:flex">
+                <input type="text" name="flag1" placeholder="Paste flag 1 here" />
+                <input type="button" class="submit-button" value="flag" onclick="sub(this,1)" />
+            </div>
+            <input type="button" name="previous" class="previous action-button" value="Previous" />
+            <input type="button" name="next" class="next action-button" value="Next" />
+        </fieldset>
+        <fieldset>
+            <h2 class="fs-title">Brute force</h2>
+            <h3 class="fs-subtitle">1) Enter the card details in the payments page.<br>
+            2)You will be redirected to otp page.<br> 3)Get the flag by finding and entering the correct 3 digit otp on the input field</h3>
+            <div style="display:flex">
+                <input type="text" name="flag1" placeholder="Paste flag 1 here" />
+                <input type="button" class="submit-button" value="flag" onclick="sub(this,1)" />
+            </div>
+            <input type="button" name="previous" class="previous action-button" value="Previous" />
+            <input type="button" name="next" class="next action-button" value="Next" />
+        </fieldset>
+        <fieldset>
+            <h2 class="fs-title">File upload</h2>
+            <h3 class="fs-subtitle">1) Create a php file with the following lines(include('../../cyber.php');get_flag_7();) <br>
+            2) Navigate to your account(localhost:8000/ecom_store/customer/myaccount.php).<br>
+            3)Navigate to edit account and upload the file where you upload your profile image<br> 4)Execute the file(customer/customer_images/your_file.php) </h3>
+            <div style="display:flex">
+                <input type="text" name="flag1" placeholder="Paste flag 1 here" />
+                <input type="button" class="submit-button" value="flag" onclick="sub(this,1)" />
+            </div>
+            <input type="button" name="previous" class="previous action-button" value="Previous" />
+            <input type="button" name="next" class="next action-button" value="Next" />
+        </fieldset>
         <fieldset>
             <h2 class="fs-title">Personal Details</h2>
             <h3 class="fs-subtitle">We will never sell it</h3>
