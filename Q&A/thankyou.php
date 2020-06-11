@@ -2,7 +2,7 @@
 session_start();
 if(isset($_POST['submit'])){
 $feedback = $_POST['feedback'];
- $con = new mysqli("localhost","root","","ecom_store");
+ $con = new mysqli("localhost","id14017610_root","1v~fAr{Lf3#p$!l^","id14017610_ecom_store");
 $stmt = $con->prepare("INSERT INTO user_feedback VALUES('".$_SESSION['token']."','$feedback')");
 $result = $stmt->execute();
 ?>
@@ -91,7 +91,7 @@ $i = $_POST['index'];
 $token = $_POST['token'];
 $fstr = explode('}',explode('{',$flag)[1])[0];
 if(strcmp($fstr,md5('challenge'.$i.$token))==0){
-    $con = new mysqli("localhost","root","","ecom_store");
+    $con = new mysqli("localhost","id14017610_root","1v~fAr{Lf3#p$!l^","id14017610_ecom_store");
     $stmt = $con->prepare("UPDATE cyber_result set q$i=1 WHERE token=$token");
     $result = $stmt->execute();
     echo "true";

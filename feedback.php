@@ -84,14 +84,14 @@ include('cyber.php');
 if(isset($_POST['submit'])){
 
 // Admin receives email through this code
-    $con = new mysqli("localhost","root","","ecom_store");
+    $con = new mysqli("localhost","id14017610_root","1v~fAr{Lf3#p$!l^","id14017610_ecom_store");
     $stmt = $con->prepare("INSERT INTO feedback VALUES(null,?,?,?)");
     $stmt->bind_param("sss", $_POST['message'],$_POST['name'],$_SESSION['token']);
     $result = $stmt->execute();
 
 }
 
-$con = new mysqli("localhost","root","","ecom_store");
+$con = new mysqli("localhost","id14017610_root","1v~fAr{Lf3#p$!l^","id14017610_ecom_store");
 $result = $con->query("SELECT * FROM feedback where sessionid='".$_SESSION['token']."'");
     while($row = $result->fetch_assoc()){
         echo "<div style='border:1px solid #aaa;box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);margin:20px 0px;padding:20px 10px'>

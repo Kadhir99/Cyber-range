@@ -1,13 +1,13 @@
 <?php
 session_start();
- $con = new mysqli("localhost","root","","ecom_store");
+ $con = new mysqli("localhost","id14017610_root","1v~fAr{Lf3#p$!l^","id14017610_ecom_store");
     $stmt = $con->prepare("SELECT * FROM cyber_result WHERE token='".$_SESSION['token']."'");
     $stmt->execute();
     $result = $stmt->get_result();
     if($result->num_rows == 1){
         $js = json_encode($result->fetch_assoc());
     }else{
-        header('Location: http://localhost:8000/ecommerce-website/index.php');
+        header('Location: http://cyberrange.000webhostapp.com/index.php');
     }
     
 
@@ -92,7 +92,7 @@ session_start();
         </fieldset>
         <fieldset>
             <h2 class="fs-title">Broken Access Control</h2>
-            <h3 class="fs-subtitle">1) There are 11 products in which 10 are visible in shop page(localhost:8000/ecom_store/shop.php).<br>
+            <h3 class="fs-subtitle">1) There are 11 products in which 10 are visible in shop page(cyberrange.000webhostapp.com/ecom_store/shop.php).<br>
             2)One of them is out of stock<br> 3)Find the flag by accessing the details page of the product which is out of stock </h3>
             <div style="width:95%;background:#eee;text-align:left;font-size:13px;padding:5px;margin-bottom:20px">
             Resources:
@@ -141,7 +141,7 @@ session_start();
         <fieldset>
             <h2 class="fs-title">File upload</h2>
             <h3 class="fs-subtitle">1) Create a php file with the code given below<br>
-            2) Navigate to your account(localhost:8000/ecom_store/customer/myaccount.php).<br>
+            2) Navigate to your account(cyberrange.000webhostapp.com/ecom_store/customer/myaccount.php).<br>
             3)Navigate to edit account and upload the file where you upload your profile image<br> 4)Execute the file(customer/customer_images/your_file.php) </h3>
             <div style="width:95%;background:#eee;text-align:left;font-size:13px;padding:5px;margin-bottom:20px">
             Resources:

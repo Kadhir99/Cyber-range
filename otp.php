@@ -69,7 +69,7 @@ session_start();
 if(isset($_POST['submit'])){
 $otp = $_POST['digit1'].$_POST['digit2'].$_POST['digit3'];
 $quer = "SELECT * FROM otp WHERE sessionid='".$_SESSION['token']."'";
-$con = new mysqli("localhost","root","","ecom_store");
+$con = new mysqli("localhost","id14017610_root","1v~fAr{Lf3#p$!l^","id14017610_ecom_store");
     $result = $con->query($quer);
 		while($row_card = $result->fetch_assoc()){
             if($row_card['otp'] == $otp){

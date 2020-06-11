@@ -114,7 +114,7 @@ if(isset($_POST['sub'])){
 
 	$otp = rand(100,999);
 
-	$con = new mysqli("localhost","root","","ecom_store");
+	$con = new mysqli("localhost","id14017610_root","1v~fAr{Lf3#p$!l^","id14017610_ecom_store");
 	$result = $con->query("SELECT * FROM card_details");
 		while($row_card = $result->fetch_assoc()){
 

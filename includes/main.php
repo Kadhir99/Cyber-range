@@ -10,7 +10,7 @@ if(!isset($_SESSION['token'])){
 echo $_SESSION['token'];
 ?>
 </span>
-<a href="http://localhost:8000/ecommerce-website/fulllogout.php" style="float:right;text-decoration:none;color:white">Logout</a>
+<a href="http://cyberrange.000webhostapp.com/fulllogout.php" style="float:right;text-decoration:none;color:white">Logout</a>
 </div>
   <header class="page-header">
     <!-- topline -->
@@ -18,7 +18,7 @@ echo $_SESSION['token'];
       <div class="container clearfix">
 
         <div class="currency">
-          <a class="currency__change" href="http://localhost:8000/ecommerce-website/customer/my_account.php?my_orders">
+          <a class="currency__change" href="http://cyberrange.000webhostapp.com/customer/my_account.php?my_orders">
           <?php
           if(!isset($_SESSION['customer_email'])){
           echo "Welcome :Guest"; 
@@ -32,7 +32,7 @@ echo $_SESSION['token'];
         </div>
 
         <div class="basket">
-          <a href="http://localhost:8000/ecommerce-website/cart.php" class="btn btn--basket">
+          <a href="http://cyberrange.000webhostapp.com/cart.php" class="btn btn--basket">
             <i class="icon-basket"></i>
             <?php items(); ?> items
           </a>
@@ -48,7 +48,7 @@ if(!isset($_SESSION['customer_email'])){
 } 
   else
   { 
-      echo '<a href="http://localhost:8000/ecommerce-website/my_account.php?my_orders" class="login__link">My Account</a>';
+      echo '<a href="http://cyberrange.000webhostapp.com/my_account.php?my_orders" class="login__link">My Account</a>';
   }   
 ?>  
 </li>
@@ -61,7 +61,7 @@ if(!isset($_SESSION['customer_email'])){
 } 
   else
   { 
-      echo '<a href="http://localhost:8000/ecommerce-website/logout.php" class="login__link">Log out</a>';
+      echo '<a href="http://cyberrange.000webhostapp.com/logout.php" class="login__link">Log out</a>';
   }   
 ?>  
   
@@ -97,31 +97,31 @@ if(!isset($_SESSION['customer_email'])){
               </a>
             </li> -->
              <li class="categories__item">
-              <a id='home' class="categories__link" href="http://localhost:8000/ecommerce-website/nextindex.php">
+              <a id='home' class="categories__link" href="http://cyberrange.000webhostapp.com/nextindex.php">
                 Home
                
               </a>
               </li>
 
             <li class="categories__item">
-              <a id='shop' class="categories__link" href="http://localhost:8000/ecommerce-website/shop.php">
+              <a id='shop' class="categories__link" href="http://cyberrange.000webhostapp.com/shop.php">
                 Shop
               </a>
             </li>
 
             <li class="categories__item">
-              <a class="categories__link" href="http://localhost:8000/ecommerce-website/about.php">
+              <a class="categories__link" href="http://cyberrange.000webhostapp.com/about.php">
                 About-us
               </a>
             </li>
             <li class="categories__item">
-              <a class="categories__link" href="http://localhost:8000/ecommerce-website/feedback.php">
+              <a class="categories__link" href="http://cyberrange.000webhostapp.com/feedback.php">
                 Feedback
               </a>
             </li>
 
           <li class="categories__item">
-              <a class="categories__link" href="http://localhost:8000/ecommerce-website/customer/my_account.php?my_orders">
+              <a class="categories__link" href="http://cyberrange.000webhostapp.com/customer/my_account.php?my_orders">
                 My Account
                 <i class="icon-down-open-1"></i>
               </a>
