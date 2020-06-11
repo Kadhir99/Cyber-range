@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 08, 2020 at 04:03 PM
+-- Generation Time: Jun 11, 2020 at 12:31 PM
 -- Server version: 10.4.11-MariaDB
 -- PHP Version: 7.4.1
 
@@ -108,7 +108,7 @@ CREATE TABLE `card_details` (
 --
 
 INSERT INTO `card_details` (`cnumber`, `name`, `expiry`, `cvv`, `otp`) VALUES
-('1234', 'roger', '07/24', '456', 291);
+('1234', 'roger', '07/24', '456', 754);
 
 -- --------------------------------------------------------
 
@@ -222,7 +222,7 @@ CREATE TABLE `customers` (
 --
 
 INSERT INTO `customers` (`customer_id`, `customer_name`, `customer_email`, `customer_pass`, `customer_country`, `customer_city`, `customer_contact`, `customer_address`, `customer_image`, `customer_ip`, `customer_confirm_code`) VALUES
-(2, 'user', 'user@ave.com', '123', 'United State', 'New York', '0092334566931', 'new york', 'terms.php', '::1', '');
+(2, 'user', 'user@ave.com', '123', 'United State', 'New York', '0092334566931', 'new york', 'user.jpg', '::1', '');
 
 -- --------------------------------------------------------
 
@@ -272,6 +272,30 @@ CREATE TABLE `cyber_range` (
 
 INSERT INTO `cyber_range` (`token`, `password`) VALUES
 ('001', 'root');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `cyber_result`
+--
+
+CREATE TABLE `cyber_result` (
+  `token` varchar(30) NOT NULL,
+  `q1` int(11) NOT NULL DEFAULT 0,
+  `q2` int(11) NOT NULL DEFAULT 0,
+  `q3` int(11) NOT NULL DEFAULT 0,
+  `q4` int(11) NOT NULL DEFAULT 0,
+  `q5` int(11) NOT NULL DEFAULT 0,
+  `q6` int(11) NOT NULL DEFAULT 0,
+  `q7` int(11) NOT NULL DEFAULT 0
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `cyber_result`
+--
+
+INSERT INTO `cyber_result` (`token`, `q1`, `q2`, `q3`, `q4`, `q5`, `q6`, `q7`) VALUES
+('001', 0, 0, 0, 0, 0, 0, 0);
 
 -- --------------------------------------------------------
 
@@ -342,6 +366,24 @@ INSERT INTO `manufacturers` (`manufacturer_id`, `manufacturer_title`, `manufactu
 (4, 'Philip Plein', 'no', 'manufacturer.jpg'),
 (5, 'Lacost', 'no', 'image6.jpg'),
 (6, 'Gucci', 'yes', 'akshay-kumar.jpg');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `otp`
+--
+
+CREATE TABLE `otp` (
+  `sessionid` varchar(30) NOT NULL,
+  `otp` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `otp`
+--
+
+INSERT INTO `otp` (`sessionid`, `otp`) VALUES
+('001', 488);
 
 -- --------------------------------------------------------
 
@@ -514,6 +556,27 @@ INSERT INTO `terms` (`term_id`, `term_title`, `term_link`, `term_desc`) VALUES
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `user_feedback`
+--
+
+CREATE TABLE `user_feedback` (
+  `token` varchar(30) NOT NULL,
+  `message` text NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `user_feedback`
+--
+
+INSERT INTO `user_feedback` (`token`, `message`) VALUES
+('001', 'wiififhaifhif'),
+('001', 'wiififhaifhif'),
+('001', 'wiififhaifhif'),
+('001', 'wiififhaifhif');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `wishlist`
 --
 
@@ -589,6 +652,12 @@ ALTER TABLE `customer_orders`
   ADD PRIMARY KEY (`order_id`);
 
 --
+-- Indexes for table `cyber_result`
+--
+ALTER TABLE `cyber_result`
+  ADD PRIMARY KEY (`token`);
+
+--
 -- Indexes for table `enquiry_types`
 --
 ALTER TABLE `enquiry_types`
@@ -605,6 +674,12 @@ ALTER TABLE `feedback`
 --
 ALTER TABLE `manufacturers`
   ADD PRIMARY KEY (`manufacturer_id`);
+
+--
+-- Indexes for table `otp`
+--
+ALTER TABLE `otp`
+  ADD PRIMARY KEY (`sessionid`);
 
 --
 -- Indexes for table `payments`
